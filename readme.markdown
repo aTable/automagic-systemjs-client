@@ -1,10 +1,10 @@
 #Usage
 Remember the automagic server needs to be running
 
-##1. Install 
+##4. Install 
 `jspm install npm:automagic-systemjs-client`
 
-##2. Load systemjs + configuration
+##5. Load systemjs + configuration
 ```
 <head>
 	<script src="jspm_packages/system.js" type="text/javascript"></script>
@@ -15,7 +15,7 @@ Remember the automagic server needs to be running
 </head>
 ```
 
-##3. Connect to the server
+##6. Connect to the server
 ```
 import automagic from 'automagic-systemjs-client';
 automagic.baseUri = 'Scripts/';
@@ -23,7 +23,8 @@ automagic.port = 3912;
 automagic.init();
 ```
 
-##4. automagic!
+## automagic!
+It's all setup, happy coding!
 
 ###automagic
 ####baseUri
