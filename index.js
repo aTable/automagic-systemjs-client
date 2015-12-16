@@ -18,7 +18,8 @@ var isStarted = false;
 
 var automagic = {
     baseUri: 'Scripts/',
-    port: 3912
+    port: 3912,
+    fileChanged: 'fileChanged'
 };
 
 automagic.init = function () {
@@ -30,7 +31,7 @@ automagic.init = function () {
     isStarted = true;
     var socket = (0, _socketIoClient2['default'])('//localhost:' + automagic.port, { secure: true });
 
-    socket.on('fileChanged', function (e) {
+    socket.on(automagic.fileChanged, function (e) {
         var doneList = [];
         refresh(e.fileName, doneList);
     });

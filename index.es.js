@@ -6,6 +6,7 @@ let isStarted = false;
 let automagic = {
     baseUri: 'Scripts/',
     port: 3912,
+	fileChanged: 'fileChanged',
 };
 
 automagic.init = () => {        
@@ -17,7 +18,7 @@ automagic.init = () => {
     isStarted = true;
     var socket = io(`//localhost:${automagic.port}`, { secure: true });
  
-    socket.on('fileChanged', function(e) {
+    socket.on(automagic.fileChanged, function(e) {
         let doneList = [];
         refresh(e.fileName, doneList);
     });
