@@ -17,18 +17,23 @@ var origin = window.location.origin;
 var isStarted = false;
 
 var automagic = {
-    baseUri: 'Scripts/',
+    baseUri: 'js/',
     port: 3912,
     fileChanged: 'fileChanged'
 };
 
 automagic.init = function () {
+    if (window.location.protocol === 'https:') {
+        console.error('https:// is not supported at this point');
+        return;
+    }
+
     if (isStarted) {
         console.error('automagic has already been initialised - ensure that \'automagic.init() is not part of a file being reloaded\'');
         return;
     }
-
     isStarted = true;
+
     var socket = (0, _socketIoClient2['default'])('//localhost:' + automagic.port, { secure: true });
 
     socket.on(automagic.fileChanged, function (e) {

@@ -18,7 +18,7 @@ Remember the automagic server needs to be running
 ##6. Connect to the server
 ```
 import automagic from 'automagic-systemjs-client';
-automagic.baseUri = 'Scripts/';
+automagic.baseUri = 'js/';
 automagic.port = 3912;
 automagic.init();
 ```
@@ -30,7 +30,7 @@ It's all setup, happy coding!
 ####baseUri
 the base path that files are served from e.g. `http://myawesomeapp.com/{automagic.baseUri}/bootstrap.js` 
 
-defaults `Scripts/`
+defaults `js/`
 
 ####port
 port to connect to. must match the server port 

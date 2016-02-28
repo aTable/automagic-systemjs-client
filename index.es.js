@@ -4,18 +4,23 @@ const { origin } = window.location;
 let isStarted = false;
 
 let automagic = {
-    baseUri: 'Scripts/',
+    baseUri: 'js/',
     port: 3912,
 	fileChanged: 'fileChanged',
 };
 
-automagic.init = () => {        
+automagic.init = () => {   
+    if (window.location.protocol === 'https:') {
+        console.error('https:// is not supported at this point');
+        return;
+    }     
+    
     if (isStarted) { 
         console.error('automagic has already been initialised - ensure that \'automagic.init() is not part of a file being reloaded\'');
         return;
     }
-
     isStarted = true;
+            
     var socket = io(`//localhost:${automagic.port}`, { secure: true });
  
     socket.on(automagic.fileChanged, function(e) {
